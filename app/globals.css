@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Primary Dark Purple - Main accent color */
+  --purple-dark: #4c1d95;
+  --purple-main: #6b21a8;
+  --purple-light: #9333ea;
+  
+  /* Cybersecurity theme colors */
+  --background: #0f0f1a;
+  --foreground: #f0f0f5;
+  --card: #1a1a2e;
+  --card-foreground: #f0f0f5;
+  --popover: #1a1a2e;
+  --popover-foreground: #f0f0f5;
+  --primary: #6b21a8;
+  --primary-foreground: #f0f0f5;
+  --secondary: #9333ea;
+  --secondary-foreground: #f0f0f5;
+  --muted: #4f46e5;
+  --muted-foreground: #cbd5e1;
+  --accent: #7c3aed;
+  --accent-foreground: #f0f0f5;
+  --destructive: #ef4444;
+  --destructive-foreground: #f0f0f5;
+  --border: #2d2d44;
+  --input: #1a1a2e;
+  --ring: #7c3aed;
+  --chart-1: #6b21a8;
+  --chart-2: #7c3aed;
+  --chart-3: #8b5cf6;
+  --chart-4: #a78bfa;
+  --chart-5: #c4b5fd;
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: #0f0f1a;
+  --foreground: #f0f0f5;
+  --card: #1a1a2e;
+  --card-foreground: #f0f0f5;
+  --popover: #1a1a2e;
+  --popover-foreground: #f0f0f5;
+  --primary: #6b21a8;
+  --primary-foreground: #f0f0f5;
+  --secondary: #9333ea;
+  --secondary-foreground: #f0f0f5;
+  --muted: #4f46e5;
+  --muted-foreground: #cbd5e1;
+  --accent: #7c3aed;
+  --accent-foreground: #f0f0f5;
+  --destructive: #ef4444;
+  --destructive-foreground: #f0f0f5;
+  --border: #2d2d44;
+  --input: #1a1a2e;
+  --ring: #7c3aed;
+  --chart-1: #6b21a8;
+  --chart-2: #7c3aed;
+  --chart-3: #8b5cf6;
+  --chart-4: #a78bfa;
+  --chart-5: #c4b5fd;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Added cyber-themed scrollbar and smooth animations */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--purple-main);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--purple-light);
+  }
+}
+
+@layer components {
+  /* Custom glow effect for cybersecurity theme */
+  .glow-purple {
+    @apply transition-all duration-300;
+    box-shadow: 0 0 20px rgba(107, 33, 168, 0.3);
+  }
+  
+  .glow-purple:hover {
+    box-shadow: 0 0 40px rgba(107, 33, 168, 0.6);
+  }
+  
+  .neon-border {
+    @apply border border-primary/50 rounded-lg transition-all duration-300;
+  }
+  
+  .neon-border:hover {
+    box-shadow: inset 0 0 20px rgba(107, 33, 168, 0.3), 0 0 20px rgba(107, 33, 168, 0.3);
+  }
+}
