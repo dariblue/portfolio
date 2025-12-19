@@ -1,209 +1,217 @@
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import { CheckCircle2 } from 'lucide-react'
+"use client"
 
-export const metadata = {
-  title: 'Experiencia | Dario - Ciberseguridad',
-  description: 'Formación, experiencia profesional y habilidades técnicas en ciberseguridad.',
-}
+import ScrollReveal from "@/components/ScrollReveal"
 
-export default function ExperiencePage() {
-  const experience = [
-    {
-      role: 'Desarrollador Becario - CRM Microsoft Dynamics',
-      company: 'INFOAVAN',
-      period: 'Septiembre 2022 - Mayo 2023',
-      description: 'Colaboración en el desarrollo y personalización del CRM Microsoft Dynamics 365.',
-      responsibilities: [
-        'Desarrollo y personalización de módulos en Microsoft Dynamics CRM',
-        'Automatización de procesos y creación de flujos de trabajo',
-        'Resolución de incidencias y soporte técnico',
-        'Integración de nuevas funcionalidades según requisitos empresariales',
-      ],
-    },
-  ]
-
-  const education = [
-    {
-      title: 'Ingeniería Informática',
-      institution: 'Universidad Francisco de Vitoria',
-      period: '2023 - Presente (3er Año)',
-      description: 'Cursando tercer año de carrera con especialización en sistemas y seguridad.',
-    },
-    {
-      title: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)',
-      institution: 'Universidad Francisco de Vitoria',
-      period: '2021 - 2023',
-      description: 'Formación Superior con calificación final de 7,21.',
-    },
-  ]
-
-  const skills = [
-    { 
-      category: 'Lenguajes de Programación', 
-      items: ['HTML5', 'CSS', 'JavaScript', 'Java', 'C#', 'PHP', 'Python'] 
-    },
-    { 
-      category: 'Desarrollo Web & Frameworks', 
-      items: ['Bootstrap', 'jQuery', 'React', 'Next.js'] 
-    },
-    { 
-      category: 'Seguridad & Análisis', 
-      items: ['OWASP', 'Análisis de Vulnerabilidades', 'Testing de Seguridad'] 
-    },
-    { 
-      category: 'Bases de Datos & Herramientas', 
-      items: ['MySQL', 'Git', 'GitHub', 'Visual Studio Code', 'Visual Studio'] 
-    },
-    { 
-      category: 'Entornos de Desarrollo', 
-      items: ['Visual Studio Code', 'Visual Studio Community', 'Eclipse', 'Android Studio', 'Office'] 
-    },
-    { 
-      category: 'Diseño & Multimedia', 
-      items: ['Photoshop', 'UI/UX Basics', 'Figma'] 
-    },
-  ]
-
-  const achievements = [
-    {
-      title: 'Ganador Hackathon UFV 2025 - Cluster IoT',
-      description: 'Desarrollo y presentación de "MediTime", aplicación ganadora en la categoría IoT.',
-    },
-    {
-      title: 'Componente del equipo técnico - StartUp FlatOut Homologaciones',
-      description: 'Participación activa en proyecto empresarial con responsabilidades técnicas.',
-    },
-    {
-      title: 'Creador de servidor de juegos online',
-      description: 'Desarrollo de infraestructura para servidor con más de 1000 jugadores.',
-    },
-  ]
-
-  const languages = [
-    { language: 'Español', level: 'Nativo' },
-    { language: 'Inglés', level: 'Muy Bueno' },
-  ]
-
+export default function Experience() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      
-      <main className="pt-24 pb-20">
-        <div className="max-w-4xl mx-auto px-4">
-          {/* Header */}
-          <div className="mb-16 space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-bold">
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                Experiencia
-              </span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Formación académica, experiencia profesional y habilidades técnicas en desarrollo y ciberseguridad.
-            </p>
-          </div>
+    <main>
+      <section className="page-header">
+        <div className="container">
+          <h1 className="page-title">
+            <span className="gradient-text">Experiencia</span>
+          </h1>
+          <p className="page-description">
+            Formación académica, experiencia profesional y habilidades técnicas en desarrollo y ciberseguridad.
+          </p>
+        </div>
+      </section>
 
-          {/* Education */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Formación Académica</h2>
-            <div className="space-y-6">
-              {education.map((edu, idx) => (
-                <div key={idx} className="relative pl-6 border-l-2 border-primary/30 hover:border-primary transition-colors">
-                  <div className="absolute -left-3 top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-                  
-                  <div className="p-6 rounded-lg border border-border bg-card/30 hover:bg-card/60 transition-all neon-border">
-                    <div className="mb-2">
-                      <h3 className="text-xl font-bold text-primary">{edu.title}</h3>
-                      <p className="text-sm text-muted-foreground">{edu.institution} · {edu.period}</p>
-                    </div>
-                    <p className="text-muted-foreground">{edu.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Education Section */}
+      <section className="timeline-section">
+        <div className="container">
+          <ScrollReveal>
+            <h2 className="section-title">Formación Académica</h2>
+          </ScrollReveal>
 
-          {/* Experience */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Experiencia Profesional</h2>
-            <div className="space-y-6">
-              {experience.map((job, idx) => (
-                <div key={idx} className="relative pl-6 border-l-2 border-primary/30 hover:border-primary transition-colors">
-                  <div className="absolute -left-3 top-0 w-4 h-4 rounded-full bg-primary border-4 border-background" />
-                  
-                  <div className="p-6 rounded-lg border border-border bg-card/30 hover:bg-card/60 transition-all neon-border">
-                    <div className="mb-2">
-                      <h3 className="text-xl font-bold text-primary">{job.role}</h3>
-                      <p className="text-sm text-muted-foreground">{job.company} · {job.period}</p>
-                    </div>
-                    
-                    <p className="text-muted-foreground mb-4">{job.description}</p>
-                    
-                    <ul className="space-y-2">
-                      {job.responsibilities.map((resp, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                          <CheckCircle2 size={16} className="text-primary flex-shrink-0 mt-0.5" />
-                          <span>{resp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="timeline">
+            <ScrollReveal className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <h3 className="timeline-title">Ingeniería Informática</h3>
+                <p className="timeline-meta">Universidad Francisco de Vitoria · 2023 - Presente (3er Año)</p>
+                <p className="timeline-description">
+                  Cursando tercer año de carrera con especialización en sistemas y seguridad.
+                </p>
+              </div>
+            </ScrollReveal>
 
-          {/* Skills */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Habilidades Técnicas</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {skills.map((skillGroup, idx) => (
-                <div key={idx} className="p-6 rounded-lg border border-border bg-card/30 neon-border">
-                  <h3 className="font-semibold text-primary mb-4">{skillGroup.category}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skillGroup.items.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 rounded-full text-sm bg-primary/10 text-primary border border-primary/20 hover:border-primary transition-colors"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Languages */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Idiomas</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {languages.map((lang, idx) => (
-                <div key={idx} className="p-4 rounded-lg border border-primary/30 bg-primary/5 hover:border-primary transition-colors">
-                  <p className="font-semibold text-foreground">{lang.language}</p>
-                  <p className="text-sm text-muted-foreground">{lang.level}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Achievements */}
-          <div>
-            <h2 className="text-2xl font-bold mb-8">Logros & Proyectos Destacados</h2>
-            <div className="space-y-4">
-              {achievements.map((achievement, idx) => (
-                <div key={idx} className="p-4 rounded-lg border border-primary/30 bg-primary/5 hover:border-primary transition-colors">
-                  <p className="font-semibold text-foreground">{achievement.title}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{achievement.description}</p>
-                </div>
-              ))}
-            </div>
+            <ScrollReveal className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <h3 className="timeline-title">Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+                <p className="timeline-meta">Universidad Francisco de Vitoria · 2021 - 2023</p>
+                <p className="timeline-description">Formación Superior con calificación final de 7,21.</p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
-      </main>
+      </section>
 
-      <Footer />
-    </div>
+      {/* Experience Section */}
+      <section className="timeline-section">
+        <div className="container">
+          <ScrollReveal>
+            <h2 className="section-title">Experiencia Profesional</h2>
+          </ScrollReveal>
+
+          <div className="timeline">
+            <ScrollReveal className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <h3 className="timeline-title">Desarrollador Becario - CRM Microsoft Dynamics</h3>
+                <p className="timeline-meta">INFOAVAN · Septiembre 2022 - Mayo 2023</p>
+                <p className="timeline-description">
+                  Colaboración en el desarrollo y personalización del CRM Microsoft Dynamics 365.
+                </p>
+                <ul className="responsibilities">
+                  <li>
+                    <i className="fas fa-check-circle"></i> Desarrollo y personalización de módulos en Microsoft
+                    Dynamics CRM
+                  </li>
+                  <li>
+                    <i className="fas fa-check-circle"></i> Automatización de procesos y creación de flujos de trabajo
+                  </li>
+                  <li>
+                    <i className="fas fa-check-circle"></i> Resolución de incidencias y soporte técnico
+                  </li>
+                  <li>
+                    <i className="fas fa-check-circle"></i> Integración de nuevas funcionalidades según requisitos
+                    empresariales
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="skills-section">
+        <div className="container">
+          <ScrollReveal>
+            <h2 className="section-title">Habilidades Técnicas</h2>
+          </ScrollReveal>
+
+          <div className="skills-grid">
+            <ScrollReveal className="skill-card">
+              <h3>Lenguajes de Programación</h3>
+              <div className="skill-tags">
+                <span className="skill-tag">HTML5</span>
+                <span className="skill-tag">CSS</span>
+                <span className="skill-tag">JavaScript</span>
+                <span className="skill-tag">Java</span>
+                <span className="skill-tag">C#</span>
+                <span className="skill-tag">PHP</span>
+                <span className="skill-tag">Python</span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal className="skill-card">
+              <h3>Desarrollo Web & Frameworks</h3>
+              <div className="skill-tags">
+                <span className="skill-tag">Bootstrap</span>
+                <span className="skill-tag">jQuery</span>
+                <span className="skill-tag">React</span>
+                <span className="skill-tag">Next.js</span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal className="skill-card">
+              <h3>Seguridad & Análisis</h3>
+              <div className="skill-tags">
+                <span className="skill-tag">OWASP</span>
+                <span className="skill-tag">Análisis de Vulnerabilidades</span>
+                <span className="skill-tag">Testing de Seguridad</span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal className="skill-card">
+              <h3>Bases de Datos & Herramientas</h3>
+              <div className="skill-tags">
+                <span className="skill-tag">MySQL</span>
+                <span className="skill-tag">Git</span>
+                <span className="skill-tag">GitHub</span>
+                <span className="skill-tag">VS Code</span>
+                <span className="skill-tag">Visual Studio</span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal className="skill-card">
+              <h3>Entornos de Desarrollo</h3>
+              <div className="skill-tags">
+                <span className="skill-tag">Visual Studio Code</span>
+                <span className="skill-tag">Eclipse</span>
+                <span className="skill-tag">Android Studio</span>
+                <span className="skill-tag">Office</span>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal className="skill-card">
+              <h3>Diseño & Multimedia</h3>
+              <div className="skill-tags">
+                <span className="skill-tag">Photoshop</span>
+                <span className="skill-tag">UI/UX</span>
+                <span className="skill-tag">Figma</span>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Languages Section */}
+      <section className="languages-section">
+        <div className="container">
+          <ScrollReveal>
+            <h2 className="section-title">Idiomas</h2>
+          </ScrollReveal>
+
+          <div className="languages-grid">
+            <ScrollReveal className="language-card">
+              <h3>Español</h3>
+              <p className="language-level">Nativo</p>
+            </ScrollReveal>
+            <ScrollReveal className="language-card">
+              <h3>Inglés</h3>
+              <p className="language-level">Muy Bueno</p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="achievements-section">
+        <div className="container">
+          <ScrollReveal>
+            <h2 className="section-title">Logros & Proyectos Destacados</h2>
+          </ScrollReveal>
+
+          <div className="achievements-grid">
+            <ScrollReveal className="achievement-card">
+              <div className="achievement-icon">
+                <i className="fas fa-trophy"></i>
+              </div>
+              <h3>Ganador Hackathon UFV 2025 - Cluster IoT</h3>
+              <p>Desarrollo y presentación de "MediTime", aplicación ganadora en la categoría IoT.</p>
+            </ScrollReveal>
+
+            <ScrollReveal className="achievement-card">
+              <div className="achievement-icon">
+                <i className="fas fa-rocket"></i>
+              </div>
+              <h3>Componente del equipo técnico - StartUp FlatOut Homologaciones</h3>
+              <p>Participación activa en proyecto empresarial con responsabilidades técnicas.</p>
+            </ScrollReveal>
+
+            <ScrollReveal className="achievement-card">
+              <div className="achievement-icon">
+                <i className="fas fa-server"></i>
+              </div>
+              <h3>Creador de servidor de juegos online</h3>
+              <p>Desarrollo de infraestructura para servidor con más de 1000 jugadores.</p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }

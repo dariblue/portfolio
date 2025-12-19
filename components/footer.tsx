@@ -1,85 +1,57 @@
-import Link from 'next/link'
-import { Github, Linkedin, Mail, Shield } from 'lucide-react'
+import Link from "next/link"
 
-export function Footer() {
-  const currentYear = new Date().getFullYear()
-
+export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background/50 backdrop-blur">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Shield size={24} className="text-primary" />
-              <span className="font-bold">
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-section">
+            <div className="footer-branding">
+              <i className="fas fa-shield-alt"></i>
+              <span>
                 <span className="text-primary">Dario</span>
-                <span className="text-muted text-xs ml-1">Blue</span>
+                <span className="text-muted text-xs">Blue</span>
               </span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Especialista en ciberseguridad y protección de infraestructura digital.
-            </p>
+            <p>Especialista en ciberseguridad y protección de infraestructura digital.</p>
           </div>
 
-          {/* Navigation Links */}
-          <div>
-            <h3 className="font-semibold mb-4 text-primary">Navegación</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="footer-section">
+            <h3>Navegación</h3>
+            <ul>
               <li>
-                <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Inicio
-                </Link>
+                <Link href="/">Inicio</Link>
               </li>
               <li>
-                <Link href="/projects" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Proyectos
-                </Link>
+                <Link href="/projects">Proyectos</Link>
               </li>
               <li>
-                <Link href="/experience" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Experiencia
-                </Link>
+                <Link href="/experience">Experiencia</Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Contacto
-                </Link>
+                <Link href="/contact">Contacto</Link>
               </li>
             </ul>
           </div>
 
-          {/* Social Links */}
-          <div>
-            <h3 className="font-semibold mb-4 text-primary">Conecta</h3>
-            <div className="flex gap-3">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card hover:bg-card/80 text-muted-foreground hover:text-primary transition-all hover:glow-purple"
-              >
-                <Github size={20} />
+          <div className="footer-section">
+            <h3>Conecta</h3>
+            <div className="social-links footer-social">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <i className="fab fa-github"></i>
               </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card hover:bg-card/80 text-muted-foreground hover:text-primary transition-all hover:glow-purple"
-              >
-                <Linkedin size={20} />
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <i className="fab fa-linkedin"></i>
               </a>
-              <a
-                href="mailto:dariorp007@gmail.com"
-                className="p-2 rounded-lg bg-card hover:bg-card/80 text-muted-foreground hover:text-primary transition-all hover:glow-purple"
-              >
-                <Mail size={20} />
+              <a href="mailto:dariorp007@gmail.com" title="Email">
+                <i className="fas fa-envelope"></i>
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} DariBlue. Todos los derechos reservados.</p>
+        <div className="footer-bottom">
+          <p>&copy; 2025 DariBlue. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

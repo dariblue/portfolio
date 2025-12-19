@@ -1,181 +1,189 @@
-'use client'
+"use client"
 
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import { ProjectCard } from '@/components/project-card'
-import Image from 'next/image'
+import { useState } from "react"
+import ScrollReveal from "@/components/ScrollReveal"
 
-export const metadata = {
-  title: 'Proyectos | Dario - Ciberseguridad',
-  description: 'Portafolio de proyectos destacados con múltiples imágenes por proyecto.',
-}
+// Project Data
+const projects = [
+  {
+    id: 1,
+    title: "MediTime",
+    description: "Ganador Hackathon UFV 2025. Aplicación IoT para monitoreo de salud.",
+    images: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+    ],
+    tags: ["IoT", "Hackathon", "React"],
+  },
+  {
+    id: 2,
+    title: "Servidor de Juegos Online",
+    description: "Infraestructura para servidor con más de 1000 jugadores activos.",
+    images: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+    ],
+    tags: ["Backend", "Networking", "Scalability"],
+  },
+  {
+    id: 3,
+    title: "Meditime (Proyecto Universitario)",
+    description: "Aplicación para gestión de datos de salud y consultas médicas.",
+    images: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+    ],
+    tags: ["Full-stack", "Database", "Healthcare"],
+  },
+  {
+    id: 4,
+    title: "MundoMotor",
+    description: "Plataforma de gestión de información automotriz y vehículos.",
+    images: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+    ],
+    tags: ["Web", "Database", "UI/UX"],
+  },
+  {
+    id: 5,
+    title: "FlatOut Homologaciones",
+    description: "Sistema técnico para gestión de procesos de homologación de vehículos.",
+    images: [
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+      "/placeholder.svg?height=300&width=400",
+    ],
+    tags: ["StartUp", "Backend", "Business"],
+  },
+]
 
-export default function ProjectsPage() {
-  const projects = [
-    {
-      id: 1,
-      title: 'MediTime',
-      description: 'Ganador Hackathon UFV 2025. Aplicación IoT para monitoreo de salud.',
-      images: [
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-      ],
-      tags: ['IoT', 'Hackathon', 'React'],
-    },
-    {
-      id: 2,
-      title: 'Servidor de Juegos Online',
-      description: 'Infraestructura para servidor con más de 1000 jugadores activos.',
-      images: [
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-      ],
-      tags: ['Backend', 'Networking', 'Scalability'],
-    },
-    {
-      id: 3,
-      title: 'Meditime (Proyecto Universitario)',
-      description: 'Aplicación para gestión de datos de salud y consultas médicas.',
-      images: [
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-      ],
-      tags: ['Full-stack', 'Database', 'Healthcare'],
-    },
-    {
-      id: 4,
-      title: 'MundoMotor',
-      description: 'Plataforma de gestión de información automotriz y vehículos.',
-      images: [
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-      ],
-      tags: ['Web', 'Database', 'UI/UX'],
-    },
-    {
-      id: 5,
-      title: 'FlatOut Homologaciones',
-      description: 'Sistema técnico para gestión de procesos de homologación de vehículos.',
-      images: [
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-        '/placeholder.svg?height=300&width=400',
-      ],
-      tags: ['StartUp', 'Backend', 'Business'],
-    },
-  ]
-
+export default function Projects() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      
-      <main className="pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-4">
-          {/* Header with project count */}
-          <div className="mb-12 space-y-4">
-            <div className="flex items-center gap-3">
-              <h1 className="text-4xl sm:text-5xl font-bold">
-                <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                  Proyectos
-                </span>
+    <main>
+      <section className="projects-header">
+        <div className="container">
+          <ScrollReveal>
+            <div className="header-content">
+              <h1 className="page-title">
+                <span className="gradient-text">Proyectos</span>
               </h1>
-              <span className="px-4 py-2 rounded-full bg-primary/15 border border-primary/40 text-sm font-semibold text-primary">
-                {projects.length} proyectos
-              </span>
-            </div>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              Galería interactiva de proyectos. Cada tarjeta contiene un carrusel interno con múltiples imágenes de cada proyecto.
-            </p>
-          </div>
-
-          {/* Main projects grid - First row with all projects */}
-          <div className="mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {projects.map((project) => (
-                <ProjectCard key={project.id} {...project} />
-              ))}
-            </div>
-          </div>
-
-          {/* Additional showcase - Two column layout */}
-          <div className="mt-20">
-            <h2 className="text-2xl font-bold mb-8">Galería Adicional</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Left column - Project 1 expanded images */}
-              <div className="space-y-4">
-                <div className="relative rounded-lg overflow-hidden border border-border neon-border h-64">
-                  <Image
-                    src={projects[0].images[0] || "/placeholder.svg"}
-                    alt={projects[0].title}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                    <h3 className="text-white font-bold">{projects[0].title}</h3>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="relative rounded-lg overflow-hidden border border-border neon-border h-32">
-                    <Image
-                      src={projects[0].images[1] || "/placeholder.svg"}
-                      alt={`${projects[0].title} - 2`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform"
-                    />
-                  </div>
-                  <div className="relative rounded-lg overflow-hidden border border-border neon-border h-32">
-                    <Image
-                      src={projects[0].images[2] || "/placeholder.svg"}
-                      alt={`${projects[0].title} - 3`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform"
-                    />
-                  </div>
-                </div>
+              <div className="project-count">
+                <span className="badge">{projects.length} proyectos</span>
               </div>
-
-              {/* Right column - Project 2 expanded images */}
-              <div className="space-y-4">
-                <div className="relative rounded-lg overflow-hidden border border-border neon-border h-64">
-                  <Image
-                    src={projects[1].images[0] || "/placeholder.svg"}
-                    alt={projects[1].title}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                    <h3 className="text-white font-bold">{projects[1].title}</h3>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="relative rounded-lg overflow-hidden border border-border neon-border h-32">
-                    <Image
-                      src={projects[1].images[1] || "/placeholder.svg"}
-                      alt={`${projects[1].title} - 2`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform"
-                    />
-                  </div>
-                  <div className="relative rounded-lg overflow-hidden border border-border neon-border h-32">
-                    <Image
-                      src={projects[1].images[2] || "/placeholder.svg"}
-                      alt={`${projects[1].title} - 3`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform"
-                    />
-                  </div>
-                </div>
-              </div>
+              <p className="page-description">
+                Galería interactiva de proyectos. Cada tarjeta contiene un carrusel interno con múltiples imágenes de cada
+                proyecto.
+              </p>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="projects-grid-section">
+        <div className="container">
+          <div className="projects-grid" id="projectsGrid">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
           </div>
         </div>
-      </main>
+      </section>
 
-      <Footer />
+      <section className="gallery-section">
+        <div className="container">
+          <ScrollReveal>
+            <h2 className="section-title">Galería Adicional</h2>
+          </ScrollReveal>
+
+          <div className="gallery-grid">
+            <ScrollReveal className="gallery-column">
+              <div className="gallery-item gallery-large">
+                <img src="/placeholder.svg?height=400&width=600" alt="MediTime - Principal" />
+                <div className="gallery-overlay">
+                  <h3>MediTime</h3>
+                </div>
+              </div>
+              <div className="gallery-row">
+                <div className="gallery-item gallery-small">
+                  <img src="/placeholder.svg?height=300&width=300" alt="MediTime - Interface" />
+                </div>
+                <div className="gallery-item gallery-small">
+                  <img src="/placeholder.svg?height=300&width=300" alt="MediTime - Dashboard" />
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal className="gallery-column">
+              <div className="gallery-item gallery-large">
+                <img src="/placeholder.svg?height=400&width=600" alt="Servidor Juegos - Principal" />
+                <div className="gallery-overlay">
+                  <h3>Servidor de Juegos Online</h3>
+                </div>
+              </div>
+              <div className="gallery-row">
+                <div className="gallery-item gallery-small">
+                  <img src="/placeholder.svg?height=300&width=300" alt="Servidor - Arquitectura" />
+                </div>
+                <div className="gallery-item gallery-small">
+                  <img src="/placeholder.svg?height=300&width=300" alt="Servidor - Estadísticas" />
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function ProjectCard({ project }: { project: typeof projects[0] }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % project.images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length)
+  }
+
+  return (
+    <div className="project-card-wrapper">
+      <div className="project-card-image">
+        <img
+          src={project.images[currentImageIndex]}
+          alt={project.title}
+          className="current-image"
+        />
+        <div className="carousel-controls">
+          <button className="carousel-arrow prev-arrow" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+            <i className="fas fa-chevron-left"></i>
+          </button>
+          <span className="image-counter">
+            <span className="current-index">{currentImageIndex + 1}</span> /{" "}
+            <span className="total-images">{project.images.length}</span>
+          </span>
+          <button className="carousel-arrow next-arrow" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+            <i className="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div className="project-info">
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-description">{project.description}</p>
+        <div className="project-tags">
+          {project.tags.map((tag) => (
+            <span key={tag} className="project-tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
